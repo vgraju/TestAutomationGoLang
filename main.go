@@ -1,8 +1,8 @@
 package main
 
 import (
+	test "Tests"
 	"fmt"
-	//	"tests"
 	"time"
 )
 
@@ -68,6 +68,8 @@ func ProcessUser(data *MyData, lchan chan *MyData) {
 	// Verify Basic Tests
 	// After full  time out, still not up, then the image is BAD.
 	newTicker := time.NewTicker(time.Second * 2)
+	// This is FAN-IN Design Pattren. Input from any of the
+	// two channel to single output channel
 	defer func() {
 		newTicker.Stop()
 		lchan <- data
@@ -82,7 +84,7 @@ func ProcessUser(data *MyData, lchan chan *MyData) {
 		case <-newTicker.C:
 			fmt.Println("Check the status of switch every tick time", data)
 			// if status is UP, Stop Ticker TODO and then do basic Tests
-			//tests.BasicTests()
+			test.BasicTests()
 			//If Basic Tests Pass, sucess = true, else post onto
 			// global Error Handling Process. Exist this loop in sucess
 			// or failure
@@ -90,8 +92,6 @@ func ProcessUser(data *MyData, lchan chan *MyData) {
 	}
 }
 
-func BasicTests() {
-}
 func SwitchLayer(rChan chan *MyData) chan *MyData {
 
 	lChan := make(chan *MyData)
