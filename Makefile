@@ -1,5 +1,5 @@
 NAME=main
-TAG=qorbani/golang-$(NAME)
+TAG=vraju/golang-$(NAME)
 VER=v1.0
 
 all: clean build run
