@@ -1,12 +1,15 @@
 package Rest
 
-import "fmt"
+import (
+	am "AutomationManager"
+	"fmt"
+)
 
 type Rest struct {
-	am *AutomationManager
+	am *am.AutomationManager
 }
 
-func Init(am *AutomationManager) *Rest {
+func Init(am *am.AutomationManager) *Rest {
 	fmt.Println("Rest Init")
 	return &Rest{am: am}
 }

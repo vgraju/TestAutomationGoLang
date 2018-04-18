@@ -5,7 +5,7 @@ VER=v1.0
 all: clean build run
 
 build:
-	go run main.go
+	go build main.go
 
 run:
 	docker run -d -p 80:80 -e PORT=80 --name=$(NAME) $(TAG)

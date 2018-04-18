@@ -24,7 +24,6 @@ func (am *AutomationMgr) InitPackages() {
 	am.serverObj = Server.Init(am)
 	am.ingressObj = Ingress.Init(am)
 	am.egressObj = Egress.Init(am)
-	am.egressObj = User.Init(am)
 	am.restObj = Rest.Init(am)
 	am.rpcObj = Rpc.Init(am)
 	am.testsObj = Tests.Init(am)
@@ -32,7 +31,7 @@ func (am *AutomationMgr) InitPackages() {
 	am.userObj = User.Init(am)
 
 }
-func Init() {
+func Init() *AutomationManager {
 	fmt.Println("Automation Manager Init")
 	return &AutomationManager{}
 }
